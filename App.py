@@ -69,11 +69,14 @@ class Task_Gen(tk.Frame):
     def create_task(self):
         new_task = self.task_var.get()
         new_time = self.time_var.get()
+        
         CHILD = ttk.Frame(self, width=600)
         CHILD.pack(side='top', anchor='nw', fill='x', expand=True, pady=5)
+        
         ttk.Label(CHILD, text=new_task, anchor='w', wraplength=350).pack(side='left', expand=True)
         ttk.Button(CHILD, text='Complete', command=lambda: CHILD.pack_forget()).pack(side='left', padx=5)
         ttk.Label(CHILD, text=new_time).pack(side='left')
+        
         self.target_alarm()
         self.check_alarm()
         
@@ -135,5 +138,6 @@ class Menu_Bar(ttk.Frame):
         fourth_menu.add_command(label='Report Issue')
         
         parent.configure(menu=menu)
+
 
 App()
